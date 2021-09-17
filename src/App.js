@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
-import FirstScreen from "./components/FirstScreen"
+import SecondScreen from "./components/SecondScreen"
 
 export default function App() {
   return (
     <div>
-     <FirstScreen />
+     <SecondScreen />
     </div>
   );
 }
