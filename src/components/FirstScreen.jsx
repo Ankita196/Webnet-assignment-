@@ -15,11 +15,16 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    textAlign: 'left',
     color: 'black',
     width: 300,
     fontSize: 16,
     fontFamily: 'Verdana,sans-serif',
+  },
+  option: {
+    border: 'block',
+    borderColor: 'blue',
+    color: 'blue',
   },
 }));
 
@@ -46,45 +51,56 @@ export default function App() {
         </Grid>
 
         <Grid xs={12} className={classes.paper}>
-          <Paper component="form">
+          <Paper component="form" className={classes.option} variant="outlined">
             <Typography>
-            
               <Checkbox
+                style={{
+                  color: 'blue',
+                }}
                 color="primary"
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
               />
-              Business 
+              Business
             </Typography>
           </Paper>
         </Grid>
         <Grid xs={12} className={classes.paper}>
-          <Paper component="form">
+          <Paper component="form" className={classes.option}>
             <Typography>
-            
               <Checkbox
                 color="primary"
+                style={{
+                  color: 'blue',
+                }}
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
               />
-              Business 
+              Technology
             </Typography>
           </Paper>
         </Grid>
         <Grid xs={12} className={classes.paper}>
-          <Paper component="form">
+          <Paper component="form" className={classes.option}>
             <Typography>
-             
               <Checkbox
                 color="primary"
+                style={{
+                  color: 'blue',
+                }}
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
               />
-              Business 
+              Creative
             </Typography>
           </Paper>
         </Grid>
 
         <Grid>
-          <Button variant="contained" color="primary">
-            Jump DOwn
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <Button variant="contained" color="primary" style={{ width: 300 }}>
+            Jump In
           </Button>
         </Grid>
       </Grid>
