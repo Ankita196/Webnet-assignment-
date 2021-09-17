@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -20,16 +20,32 @@ const useStyles = makeStyles((theme) => ({
     width: 300,
     fontSize: 16,
     fontFamily: 'Verdana,sans-serif',
+   
+
   },
-  option: {
-    border: 'block',
-    borderColor: 'blue',
-    color: 'blue',
-  },
+  option :{
+border:"block",
+borderColor:"blue",
+color:"blue"
+
+  }
 }));
 
 export default function App() {
   const classes = useStyles();
+  const [disabled, setDisabled]=useState(true)
+  const [checked, setChecked] = useState();
+   
+  const onClick=()=>{
+     setChecked(true)
+     
+ const handleChange=()=>{
+   if(checked==true){
+     return (
+       setDisabled(false)
+     )
+   }
+ }
   return (
     <div style={{ display: 'block', marginTop: 80 }}>
       <Grid container spacing={5} className={classes.root}>
@@ -51,55 +67,59 @@ export default function App() {
         </Grid>
 
         <Grid xs={12} className={classes.paper}>
+          <Paper component="form"  className={classes.option} variant="outlined">
+            <Typography>
+            
+              <Checkbox  style ={{
+                  color: "blue",
+                }}
+                color="primary"
+                checked={checked}
+                onClick={onClick}
+                inputProps={{ 'aria-label': 'secondary checkbox' }}
+                
+              />
+              Business 
+            </Typography>
+          </Paper>
+        </Grid>
+        <Grid xs={12} className={classes.paper}>
+          <Paper component="form"  className={classes.option}variant="outlined">
+            <Typography>
+            
+              <Checkbox
+                color="primary"
+                checked={checked}
+                onClick={handleChange}
+                style ={{
+                  color: "blue",
+                }}
+                inputProps={{ 'aria-label': 'secondary checkbox' }}
+              />
+            Technology
+            </Typography>
+          </Paper>
+        </Grid>
+        <Grid xs={12} className={classes.paper}>
           <Paper component="form" className={classes.option} variant="outlined">
             <Typography>
-              <Checkbox
-                style={{
-                  color: 'blue',
-                }}
-                color="primary"
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-              />
-              Business
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid xs={12} className={classes.paper}>
-          <Paper component="form" className={classes.option}>
-            <Typography>
+             
               <Checkbox
                 color="primary"
-                style={{
-                  color: 'blue',
+                checked={checked}
+                style ={{
+                  color: "blue",
                 }}
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
               />
-              Technology
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid xs={12} className={classes.paper}>
-          <Paper component="form" className={classes.option}>
-            <Typography>
-              <Checkbox
-                color="primary"
-                style={{
-                  color: 'blue',
-                }}
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-              />
-              Creative
+            Creative
             </Typography>
           </Paper>
         </Grid>
 
         <Grid>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <Button variant="contained" color="primary" style={{ width: 300 }}>
+          <br/><br/><br/><br/><br/>
+          <Button variant="contained" color="primary" style={{width:300}} disabled={disabled}>
             Jump In
           </Button>
         </Grid>
