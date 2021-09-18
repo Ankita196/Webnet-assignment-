@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.css";
-import SecondScreen from "./components/SecondScreen"
+import FirstScreen from "./components/FirstScreen"
+ import RowRadioButtonsGroup from "./components/SecondScreen"
 
 export default function App() {
   return (
     <div>
-     <SecondScreen />
+     <RowRadioButtonsGroup />
     </div>
   );
 }
