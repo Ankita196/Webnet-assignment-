@@ -1,4 +1,5 @@
 import React from 'react';
+import Feeds from "./SecondScreen";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -13,7 +14,8 @@ import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Typography from '@material-ui/core/Typography';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -57,18 +59,12 @@ const useStyles = makeStyles((theme) => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
-  title: {
-    color: theme.palette.primary.light,
-  },
-  titleBar: {
-    background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  },
+  
 }));
 
 export default function LandingPage() {
   const classes = useStyles();
-  const itemData=[1,"anku",2,3,4,5,6,7,8]
+  const itemData=[1,2,2,3,4,5,6,7,8]
 
   return (
     <div style={{ display: 'block', margin:40 }} >
@@ -106,17 +102,12 @@ export default function LandingPage() {
         </Button>
       </div>
       <br/>
-      <div className={classes.roots}>
-      <ImageList className={classes.imageList} cols={2.5}>
-        {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <img src={item.img} alt={item.title} style={{width:100,height:100}}/>
-            
-          </ImageListItem>
-        ))}
-      </ImageList>
-    </div>
+  
       </Grid>
+      <Feeds title="Feed" buttonName="See More"/>
+      <br/>
+      
+      <Feeds title=" Free Live Classes" buttonName="Attend"/>
     </div>
   );
 }

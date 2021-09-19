@@ -1,12 +1,8 @@
-import React from 'react';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,30 +27,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Feed({title,buttonName}) {
+export default function Feed() {
   const classes = useStyles();
-  const itemData=[1,2,3,4,5,6,7,8]
+  const itemData=[1,2,2,3,4,5,6,7,8]
 
   return (
 <div className={classes.roots}>
-<div style={{display:"flex",justifyContent:"space-between"}}>
+<div style={{display:"flex"}}>
 <Typography style={{color:"black"}}>
-{title}
+feed
 </Typography>
-<Typography style={{color:"blue"}}>
+<Typography style={{display:"flex",marginLeft:210,color:"blue"}}>
 See  All
 </Typography>
 </div>
 <ImageList className={classes.imageList} cols={2.5}>
 {itemData.map((item) => (
-  <ImageListItem key={item.img} >
-    <div style={{display:'flex', flexDirection: 'column',}}>
+  <ImageListItem key={item.img}>
     <img src={item.img} alt={item.title} style={{width:100,height:150,borderColor:'blue'}}/>
-    <Button style={{width:100,height:20}} variant="contained" color="primary">
-    <Typography style={{fontSize:10}}>
-{buttonName}</Typography>
-        </Button>
-        </div>
+    
   </ImageListItem>
 ))}
 </ImageList>
