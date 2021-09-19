@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import Options from './Option'
-import LandingPage from './landingPage'
+import Options from './Option';
+import LandingPage from './landingPage';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
-import Typography from '@material-ui/core/Typography';
 
 //styles
 const useStyles = makeStyles((theme) => ({
@@ -23,11 +21,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 16,
     fontFamily: 'Verdana,sans-serif',
   },
-  option: {
-    border: 'block',
-    borderColor: 'blue',
-    color: 'blue',
+  DisabledLink :{
+    pointerEvents: "none",
   },
+  
 }));
 
 export default function FirstScreen() {
@@ -43,11 +40,10 @@ export default function FirstScreen() {
       return setIsDisabled(false);
     }
   };
- 
+
   const onCheckboxClick = () => {
     setChecked(!checked);
     return canBeSubmitted();
-   
   };
   return (
     <div style={{ display: 'block', marginTop: 80 }}>
@@ -69,10 +65,9 @@ export default function FirstScreen() {
           Select Your interest
         </Grid>
 
-        <Options option='Business' onCheckboxClick={onCheckboxClick}  />
-        <Options option='Technology'  onCheckboxClick={onCheckboxClick}/>
-        <Options option='Creative' onCheckboxClick={onCheckboxClick}/>
-        
+        <Options option="Business" onCheckboxClick={onCheckboxClick} />
+        <Options option="Technology" onCheckboxClick={onCheckboxClick} />
+        <Options option="Creative" onCheckboxClick={onCheckboxClick} />
 
         <Grid>
           <br />
@@ -80,17 +75,18 @@ export default function FirstScreen() {
           <br />
           <br />
           <br />
-         <Link to="/landing">
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ width: 300 }}
-            disabled={isDisabled}
-            
-          >
-            Jump In
-          </Button>
-</Link>
+           <Link to="/landing" style={{textDecoration:"none"
+}} > 
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ width: 300 }}
+              disabled={isDisabled}
+              
+            >
+              Jump In
+            </Button>
+           </Link> 
         </Grid>
       </Grid>
     </div>
