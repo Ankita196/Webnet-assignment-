@@ -37,7 +37,12 @@ export default function App() {
   const [checked, setChecked] = useState(false);
 
   const canBeSubmitted = () => {
-    return checked ? setIsDisabled(true) : setIsDisabled(false);
+    // return checked ? setIsDisabled(true) : setIsDisabled(false);
+    if (checked==true){
+      return setIsDisabled(true)
+    }else{
+      return setIsDisabled(false)
+    }
   };
 
   const onCheckboxClick = () => {
@@ -81,19 +86,20 @@ export default function App() {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} className={classes.paper}>
-          <Paper component="form"  className={classes.option}variant="outlined">
+        <Grid xs={12} className={classes.paper}>
+          <Paper component="form"  className={classes.option} variant="outlined">
             <Typography>
             
-              <Checkbox
-                color="primary"
-                onClick={onCheckboxClick}
-                style ={{
+              <Checkbox  style ={{
                   color: "blue",
                 }}
+                color="primary"
+               
+                onClick={onCheckboxClick}
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
+                
               />
-            Technology
+             Technology
             </Typography>
           </Paper>
         </Grid>

@@ -6,7 +6,7 @@ import FirstScreen from "./components/FirstScreen"
 export default function App() {
   return (
     <div>
-     <RowRadioButtonsGroup />
+     <FirstScreen />
     </div>
   );
 }
