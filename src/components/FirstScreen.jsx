@@ -1,12 +1,14 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import Options from './Option'
+import LandingPage from './landingPage'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import {Link} from "react-router-dom"
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
+//styles
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -20,34 +22,32 @@ const useStyles = makeStyles((theme) => ({
     width: 300,
     fontSize: 16,
     fontFamily: 'Verdana,sans-serif',
-   
-
   },
-  option :{
-border:"block",
-borderColor:"blue",
-color:"blue"
-
-  }
+  option: {
+    border: 'block',
+    borderColor: 'blue',
+    color: 'blue',
+  },
 }));
 
-export default function App() {
+export default function FirstScreen() {
   const classes = useStyles();
   const [isDisabled, setIsDisabled] = useState(true);
   const [checked, setChecked] = useState(false);
 
   const canBeSubmitted = () => {
     // return checked ? setIsDisabled(true) : setIsDisabled(false);
-    if (checked==true){
-      return setIsDisabled(true)
-    }else{
-      return setIsDisabled(false)
+    if (checked == true) {
+      return setIsDisabled(true);
+    } else {
+      return setIsDisabled(false);
     }
   };
-
+ 
   const onCheckboxClick = () => {
     setChecked(!checked);
     return canBeSubmitted();
+   
   };
   return (
     <div style={{ display: 'block', marginTop: 80 }}>
@@ -69,63 +69,28 @@ export default function App() {
           Select Your interest
         </Grid>
 
-        <Grid xs={12} className={classes.paper}>
-          <Paper component="form"  className={classes.option} variant="outlined">
-            <Typography>
-            
-              <Checkbox  style ={{
-                  color: "blue",
-                }}
-                color="primary"
-               
-                onClick={onCheckboxClick}
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-                
-              />
-              Business 
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid xs={12} className={classes.paper}>
-          <Paper component="form"  className={classes.option} variant="outlined">
-            <Typography>
-            
-              <Checkbox  style ={{
-                  color: "blue",
-                }}
-                color="primary"
-               
-                onClick={onCheckboxClick}
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-                
-              />
-             Technology
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid xs={12} className={classes.paper}>
-          <Paper component="form" className={classes.option} variant="outlined">
-            <Typography>
-             
-              <Checkbox
-                color="primary"
-                onClick={onCheckboxClick}
-                style ={{
-                  color: "blue",
-                }}
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-              />
-            Creative
-            </Typography>
-          </Paper>
-        </Grid>
+        <Options option='Business' onCheckboxClick={onCheckboxClick}  />
+        <Options option='Technology'  onCheckboxClick={onCheckboxClick}/>
+        <Options option='Creative' onCheckboxClick={onCheckboxClick}/>
+        
 
         <Grid>
-          <br/><br/><br/><br/><br/>
-          <Button variant="contained" color="primary" style={{width:300}} 
-          disabled={isDisabled}>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+         <Link to="/landing">
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ width: 300 }}
+            disabled={isDisabled}
+            
+          >
             Jump In
           </Button>
+</Link>
         </Grid>
       </Grid>
     </div>
